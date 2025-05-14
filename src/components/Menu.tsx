@@ -1,13 +1,18 @@
-import React from "react";
 import { Link } from "react-router";
 
 const Menu = () => {
   const menuItems = [
     {
-      title: "Escala del Dolor",
+      title: "Escala de Flacc",
       description:
         "Evaluación de expresión facial, movimiento corporal y consolabilidad",
       path: "/dolor",
+    },
+    {
+      title: "Escala de Objetive Pain (OPS)",
+      description:
+        "Evaluación de expresión facial, movimiento corporal y consolabilidad",
+      path: "/objetivepain",
     },
     {
       title: "Escala de Abstinencia",
@@ -20,11 +25,6 @@ const Menu = () => {
       description:
         "Evaluación de nivel de consciencia, agitación y respuesta respiratoria",
       path: "/sedoanalgesia",
-    },
-    {
-      title: "Resultados",
-      description: "Visualización del score total y recomendaciones clínicas",
-      path: "/resultados",
     },
     {
       title: "Escala de Delirium",
@@ -52,7 +52,6 @@ const Menu = () => {
             pacientes que requieren sedoanalgesia
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {menuItems.map((item, index) => (
             <Link

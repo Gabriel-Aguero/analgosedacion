@@ -1,6 +1,24 @@
-import React from "react";
+type ScoresType = {
+  facial: number;
+  piernas: number;
+  movimiento: number;
+  llanto: number;
+  consolabilidad: number;
+};
 
-const Resultados = ({ totalScore, scores, getInterpretation, resetScores }) => {
+type ResultadosProps = {
+  totalScore: number;
+  scores: ScoresType;
+  getInterpretation: () => string;
+  resetScores: () => void;
+};
+
+const Resultados = ({
+  totalScore,
+  scores,
+  getInterpretation,
+  resetScores,
+}: ResultadosProps) => {
   return (
     <section className="col-span-4">
       <div className="p-4 bg-gray-100 border-2 border-blue-400 rounded-lg shadow-md">
