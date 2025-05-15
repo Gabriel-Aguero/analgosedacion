@@ -3,35 +3,29 @@ import { Link } from "react-router";
 const Menu = () => {
   const menuItems = [
     {
-      title: "Escala de Flacc",
+      title: "Escala de Dolor",
       description:
         "Evaluación de expresión facial, movimiento corporal y consolabilidad",
       path: "/dolor",
-    },
+    },  
     {
-      title: "Escala de Objetive Pain (OPS)",
-      description:
-        "Evaluación de expresión facial, movimiento corporal y consolabilidad",
-      path: "/objetivepain",
-    },
-    {
-      title: "Escala de Abstinencia",
+      title: "Escala de SOPHIA (Sophia Observations withdrawal Symptoms-scale - SOS)",
       description:
         "Evaluación de temblores, sudoración, ansiedad, agitación y síntomas gastrointestinales",
       path: "/abstinencia",
     },
     {
-      title: "Escala de Sedoanalgesia",
+      title: "Escala de SBS (State Behavioural Scale)",
       description:
-        "Evaluación de nivel de consciencia, agitación y respuesta respiratoria",
-      path: "/sedoanalgesia",
+        "State Behavioural Scale",
+      path: "/sedacion",
     },
     {
-      title: "Escala de Delirium",
+      title: "Escala de CAPD (Cornell Assessment of Pediatric Delirium)",
       description:
-        "Evaluación de nivel de conciencia, orientación, atención y comportamiento",
+        "Cornell Assessment of Pediatric Delirium.",
       path: "/delirium",
-    },
+    },   
     {
       title: "Bibliografía",
       description:
@@ -45,11 +39,11 @@ const Menu = () => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            Calculadora de Score de Sedoanalgesia
+            Calculadora de Score de Analgosedación
           </h1>
           <p className="mt-4 text-xl text-gray-600">
-            Herramienta clínica para la evaluación y cálculo de scores en
-            pacientes que requieren sedoanalgesia
+            Instrumento para la evaluación y cálculo de scores en
+            pacientes que requieren analgosedación
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -82,6 +76,7 @@ const Menu = () => {
                       />
                     </svg>
                   </span>
+                  
                 </div>
               </div>
             </Link>

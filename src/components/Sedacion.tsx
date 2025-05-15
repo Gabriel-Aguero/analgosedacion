@@ -4,19 +4,11 @@ import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router";
 
 type ScoresType = {
-  facial: number;
-  piernas: number;
-  movimiento: number;
-  llanto: number;
-  consolabilidad: number;
+  resultado: number;  
 };
-const Dolor = () => {
+const Sedacion = () => {
   const [scores, setScores] = useState<ScoresType>({
-    facial: 0,
-    piernas: 0,
-    movimiento: 0,
-    llanto: 0,
-    consolabilidad: 0,
+    resultado: 0,    
   });
 
   const handleScoreChange = (category: string, value: number) => {
@@ -26,93 +18,35 @@ const Dolor = () => {
     }));
   };
 
-  const totalScore =
-    scores.facial +
-    scores.piernas +
-    scores.movimiento +
-    scores.llanto +
-    scores.consolabilidad;
+  const totalScore = scores.resultado;    
 
   const resetScores = () => {
-    setScores({
-      facial: 0,
-      piernas: 0,
-      movimiento: 0,
-      llanto: 0,
-      consolabilidad: 0,
-    });
+    setScores({ resultado: 0 });
   };
 
-  const getInterpretation = () => {    
-    if (totalScore <= 4)
-      return "Dolor leve - Considerar intervención no farmacológica.";
-    if (totalScore >= 4 && totalScore <= 7)
-      return "Dolor moderado - Considerar intervención no farmacológica.";
-    if (totalScore >= 7)
-      return "Dolor severo - Requiere intervención inmediata.";
-    return "Estado Estable - Paciente estable. Monitorización rutinaria.";
+  const getInterpretation = () => {
+    switch (totalScore) {
+      case -2: return "Estado Estable - Paciente estable. Monitorización rutinaria.";
+      case -1: return "Estado Estable - Paciente estable. Monitorización rutinaria.";  
+      case 0: return "Estado Estable - Paciente estable. Monitorización rutinaria.";
+      case 1: return "Dolor leve - Considerar intervención no farmacológica.";
+      case 2: return "Dolor moderado - Considerar analgesia.";
+      case 3: return "Dolor severo - Requiere intervención inmediata.";
+      default: return "Estado Estable - Paciente estable. Monitorización rutinaria.";
+    }
   };
 
   const sections = [
     {
-      name: "Expresión Facial",
-      key: "facial",
+      name: "Valoración",
+      key: "resultado",
       options: [
-        { value: 0, label: "Relajada, expresión neutra, no sonríe. (0)" },
-        { value: 1, label: "Ocasionalmente ceño fruncido, mueca. (1)" },
-        {
-          value: 2,
-          label:
-            "Frunce el ceño con frecuencia, aprieta los dientes contante o frecuentemente, le tiembla el mentón. (2)",
-        },
-      ],
-    },
-    {
-      name: "Piernas",
-      key: "piernas",
-      options: [
-        { value: 0, label: "Posición normal, relajado. (0)" },
-        { value: 1, label: "Tenso, inquieto, molesto. (1)" },
-        { value: 2, label: "Patéa o levanta las piernas. (2)" },
-      ],
-    },
-    {
-      name: "Movimiento Corporal",
-      key: "movimiento",
-      options: [
-        {
-          value: 0,
-          label:
-            "Acostado en silencio, posición normal, se mueve con facilidad (0)",
-        },
-        { value: 1, label: "Se retuerce, da muchas vueltas, Tenso. (1)" },
-        { value: 2, label: "Se arquéa, se pone rígido o se sacudse. (2)" },
-      ],
-    },
-    {
-      name: "Llanto",
-      key: "llanto",
-      options: [
-        { value: 0, label: "No llora (despierto o dormido). (0)" },
-        { value: 1, label: "Gime y se queja ded vez en cuando. (1)" },
-        {
-          value: 2,
-          label:
-            "Llora sin parar, grita o solloza y se queja constantemente. (2)",
-        },
-      ],
-    },
-    {
-      name: "Consolabilidad",
-      key: "consolabilidad",
-      options: [
-        { value: 0, label: "Tranquilo, relajado. (0)" },
-        {
-          value: 1,
-          label:
-            "Se tranquiliza cuando le tocan, abrazan o le hablan, se le puede distraer. (1)",
-        },
-        { value: 2, label: "Difícil de consolar o tranquilizar. (2)" },
+        { value: -3, label: "No Responde. (-3)" },
+        { value: -2, label: "Responde a estímulos nociceptivos. (-2)" },
+        { value: -1, label: "Responde al tocarlo a la voz. (-1)" },
+        { value: 0, label: "Despierto o calmo. (0)" },
+        { value: 1, label: "Inquieto y dificil de calmar. (1)" },
+        { value: 2, label: "Agitado. (2)" },        
       ],
     },
   ];
@@ -130,10 +64,10 @@ const Dolor = () => {
         <article className="col-span-10 border-1 border-blue-400 rounded-lg shadow-md bg-slate-100 flex flex-col gap-2">
           <div className="bg-sky-100 p-4">
             <h2 className="text-xl font-bold ">
-              🚨 Información sobre la escala de Flacc
+              🚨 Información sobre la escala de SBS
             </h2>
             <p className="text-lg text-gray-600 font-medium">
-              La Escala de Flacc es una herramienta clínica utilizada para
+              La Escala de SBS una herramienta clínica utilizada para
               evaluar el nivel de dolor en pacientes que no pueden comunicarse
               verbalmente.
             </p>
@@ -171,7 +105,7 @@ const Dolor = () => {
         <article className="col-span-6 w-full mx-auto bg-slate-100 border-2 border-blue-400 rounded-lg shadow-md">
           <div className="bg-blue-300 p-4 rounded-t-lg">
             <h1 className="text-2xl font-bold text-center text-gray-800">
-              Escala del Dolor Flacc
+              Escala de SBS
             </h1>
           </div>
 
@@ -239,7 +173,7 @@ const Dolor = () => {
           <div className="p-4 bg-gray-100 border-2 border-blue-400 rounded-lg shadow-md">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-bold text-gray-800">
-                Score de Dolor: {totalScore}/10
+                Score de Sedación: {totalScore}
               </h3>
               <button
                 onClick={resetScores}
@@ -254,30 +188,10 @@ const Dolor = () => {
             </div>
 
             {/* Tabla de scores (opcional) */}
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              <div className="bg-white p-3 rounded shadow-sm">
-                <p className="font-medium text-gray-600">Expresión Facial</p>
-                <p className="text-xl font-bold">{scores.facial}/2</p>
-              </div>
-              <div className="bg-white p-3 rounded shadow-sm">
-                <p className="font-medium text-gray-600">Piernas</p>
-                <p className="text-xl font-bold">{scores.piernas}/2</p>
-              </div>
-              <div className="bg-white p-3 rounded shadow-sm">
-                <p className="font-medium text-gray-600">Movimiento Corporal</p>
-                <p className="text-xl font-bold">{scores.movimiento}/2</p>
-              </div>
-              <div className="bg-white p-3 rounded shadow-sm">
-                <p className="font-medium text-gray-600">Llanto</p>
-                <p className="text-xl font-bold">{scores.llanto}/2</p>
-              </div>
-              <div className="bg-white p-3 rounded shadow-sm">
-                <p className="font-medium text-gray-600">Consolabilidad</p>
-                <p className="text-xl font-bold">{scores.consolabilidad}/2</p>
-              </div>
+            <div className="mt-6 grid grid-cols-2 gap-4">                            
               <div className="bg-gray-300 p-3 border-2 border-blue-500 rounded shadow-sm">
                 <p className="font-medium text-gray-600">Total</p>
-                <p className="text-xl font-bold">{totalScore}/10</p>
+                <p className="text-xl font-bold">{totalScore}</p>
               </div>
             </div>
           </div>
@@ -287,4 +201,4 @@ const Dolor = () => {
   );
 };
 
-export default Dolor;
+export default Sedacion;
