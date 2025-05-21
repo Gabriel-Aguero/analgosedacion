@@ -53,7 +53,7 @@ const Sedacion = () => {
 
   return (
     <>
-      <section className="grid grid-cols-10 gap-4 max-w-4xl mx-auto mt-10">
+      <section className="grid grid-cols-10 gap-4 max-w-4xl mx-auto mt-10 min-h-screen py-10">
         <Link
           to="/"
           className="col-span-2 py-2 flex items-center justify-center bg-blue-200 text-gray-800 border-1 border-blue-600 rounded-lg shadow-md
@@ -67,31 +67,35 @@ const Sedacion = () => {
               🚨 Información sobre la escala de SBS
             </h2>
             <p className="text-lg text-gray-600 font-medium">
-              La Escala de SBS una herramienta clínica utilizada para
-              evaluar el nivel de dolor en pacientes que no pueden comunicarse
-              verbalmente.
+              Está validada para monitorizar la sedación en niños de 6 semanas a 6 años, en ventilación
+              mecánica. Describe 6 niveles de sedación-agitación, desde el -3 al +2, correspondiendo las
+              puntuaciones negativas a estados de sedación y las positivas a los de agitación. Esta escala es
+              necesaria como paso intermedio para completar la escala WAT-1 (Withdrawal Assessment
+              Tool-1). No existe validación al español.
             </p>
           </div>
           <div>
             <p className="text-md text-gray-600 font-medium p-4">
-              Esta escala evalúa tres paráetros principales:
+              Esta escala evalúa 6 niveles de Sedación - Agitación: desde -3 a +2.
               <ul className="list-disc list-inside pl-4 mt-2">
                 <li>
-                  Expresión facial: Evalúa los gestos y expresiones del paciente
+                  Correspondiendo las puntuaciones negativas a estados de sedación.
                 </li>
                 <li>
-                  Piernas: Observa la posición y movimiento de las piernas.
+                  Las positivas a los de agitación.
                 </li>
                 <li>
-                  Movimiento corporal: Analiza la postura y movimientos del
-                  paciente.
+                  En la práctica rutinaria no utilizar un estímulo nociceptivo para la evaluación del SBS (SBS utiliza la compresión del lecho ungueal con un lápiz)
+                  Usar solamente los necesarios para la atención del paciente. Creemos importante no agregar dolor evitable al paciente.
+                </li>                
+                <li>
+                  La cuantificación del dolor/ansiedad debe realizarse como mínimo cada 4 Hs., cuando aparezcan signos sospechosos de dolor o estrés psicológico y dentro de los 60 minutos después de cada intervención con analgésicos o sedantes adicionales.
+                </li>             
+                <li>
+                  Nivel de sedación “basal” de acuerdo a la situación/diagnóstico del paciente (profunda para hipertensión pulmonar aguda o intracraneana o vía aérea difícil, SBS= -2/-3).
                 </li>
                 <li>
-                  Llanto: Observa la presencia y tipo de llanto del paciente.
-                </li>
-                <li>
-                  Consolabilidad: Evalúa la respuesta del paciente a los
-                  intentos de consuelo.
+                   “Óptima” para los demás: somnoliento, calmo, capaz de responder a los estímulos sin que los mismos le producen ansiedad, que no tenga movimientos excesivos y que respire en forma sincrónica con el respirador = SBS = 0/-1
                 </li>
               </ul>
               <p className="mt-2 font-bold text-gray-900">

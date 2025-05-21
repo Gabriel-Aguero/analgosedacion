@@ -17,7 +17,7 @@ const Menu = () => {
     {
       title: "Escala de SBS (State Behavioural Scale)",
       description:
-        "State Behavioural Scale",
+        "Está validada para monitorizar la sedación en niños de 6 semanas a 6 años, en ventilación mecánica.",
       path: "/sedacion",
     },
     {
